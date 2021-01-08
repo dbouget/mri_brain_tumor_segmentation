@@ -11,6 +11,7 @@ Please cite the following article if you re-use any part:
 ![Dual attention guided U-Net architecture](resources/images/DAGUNet-Arch.png)
 
 ## 2. Installation
+The following steps have been tested on Ubuntu machines, it might not work as is on Windows.  
 ### a. Python
 The Python virtual environment can be setup using the following commands:  
 
@@ -24,12 +25,11 @@ Simply download the corresponding Docker image:
 > `docker image pull dbouget/mri_brain-tumor_segmentation:v1`
 
 ### c. Models
-The models are to be downloaded separately and placed inside the resources sub-folder:  
+In order to download the models locally and prepare the folders, simply run the following:   
 
-> `wget .zip`  
-`tar -xvf .zip`  
-`rm .zip`  
-`mv -r models/ resources/`
+> `source venv/bin/activate`  
+`python setup.py`  
+`deactivate`
 
 ## 3. Use
 The command line input parameters are the following:
@@ -40,7 +40,7 @@ The command line input parameters are the following:
 - m [Model]: Name of the model to use for inference, in the list [UNet-Slabs, PLS-Net, UNet-FV, AGUNet, DAGUNet] 
 - g [GPU]: Id of the GPU to use for inference. The CPU is used if no eligible number is provided.
 
-A runtime configuration found also exists in resources/data/runtime_config.ini,
+A runtime configuration file also exists in resources/data/runtime_config.ini,
 where additional variables can be modified:  
 - non_overlapping: [true, false], only in effect for the UNet-Slabs model. 
   True indicates no overlapping in predictions while false indicates stride 1 overlap.

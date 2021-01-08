@@ -2,15 +2,18 @@ import os
 import numpy as np
 import nibabel as nib
 from nibabel.processing import resample_to_output
-# from dipy.align.reslice import reslice
 from src.Utils.volume_utilities import intensity_normalization, resize_volume, crop_MR
 from src.Utils.io import load_nifti_volume
 
 
 def run_pre_processing(filename, pre_processing_parameters):
     print("Extracting data...")
-    #@TODO. Only nifti input or also accomodate for other types? Or maybe just re-export to nifti with SimpleITK?
-    input_ext = os.path.splitext(filename)
+    ext_split = filename.split('.')
+    extension = '.'.join(ext_split[1:])
+
+    #@TODO. Accomodate for other types and re-export to nifti with SimpleITK?
+    if extension != 'nii' or extension != 'nii.gz':
+        pass
 
     nib_volume = load_nifti_volume(filename)
 
@@ -25,9 +28,6 @@ def run_pre_processing(filename, pre_processing_parameters):
     if library == 'nibabel':
         resampled_volume = resample_to_output(nib_volume, new_spacing, order=1)
         data = resampled_volume.get_data().astype('float32')
-    # elif library == 'dipy':
-    #     data, aff = reslice(nib_volume.get_data(), nib_volume.affine, nib_volume.header.get_zooms(), new_zooms=new_spacing)
-    #     resampled_volume = nib.Nifti1Image(data, affine=aff)
 
     crop_bbox = None
     # Normalize values
