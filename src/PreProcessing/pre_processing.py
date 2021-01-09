@@ -3,7 +3,7 @@ import numpy as np
 import nibabel as nib
 from nibabel.processing import resample_to_output
 from src.Utils.volume_utilities import intensity_normalization, resize_volume, crop_MR
-from src.Utils.io import load_nifti_volume
+from src.Utils.io import load_nifti_volume, convert_and_export_to_nifti
 
 
 def run_pre_processing(filename, pre_processing_parameters):
@@ -13,6 +13,7 @@ def run_pre_processing(filename, pre_processing_parameters):
 
     #@TODO. Accomodate for other types and re-export to nifti with SimpleITK?
     if extension != 'nii' or extension != 'nii.gz':
+        filename = convert_and_export_to_nifti(input_filepath=filename)
         pass
 
     nib_volume = load_nifti_volume(filename)

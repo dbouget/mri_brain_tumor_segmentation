@@ -34,7 +34,7 @@ In order to download the models locally and prepare the folders, simply run the 
 ## 3. Use
 The command line input parameters are the following:
 - i [Input]: Path to the MRI volume file, preferably in nifti format. Other formats will
-  be converted to nifti before being processing.
+  be converted to nifti before being processed, using SimpleITK.  
 - o [Output]: Path and prefix for the predictions file. The base name must already exist
   on disk.
 - m [Model]: Name of the model to use for inference, in the list [UNet-Slabs, PLS-Net, UNet-FV, AGUNet, DAGUNet] 
@@ -49,7 +49,9 @@ where additional variables can be modified:
   probability threshold value.
 - reconstruction_order: [resample_first, resample_second]. In the former, the raw probability map
   is resampled to the original patient's space before the reconstruction happens (slower) while
-  in the former the opposite is performed (faster).
+  in the former the opposite is performed (faster).  
+- probability_threshold: threshold value to be used when the reconstruction method is set to thresholding
+  (optimal values for each model can be found in the paper).
   
 ### a. Python
 To run inference with the attention-gated U-Net model, using GPU 0, execute the following in the project root directory:  

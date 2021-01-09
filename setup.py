@@ -22,9 +22,9 @@ def setup_repository():
     pfile = open(runtime_config_path, 'w')
     pfile.write("[Predictions]\n")
     pfile.write("non_overlapping=true\n")
-    pfile.write("reconstruction_method=probabilities #argmax, probabilities, thresholding\n")
+    pfile.write("reconstruction_method=probabilities #probabilities, thresholding\n")
     pfile.write("reconstruction_order=resample_first #resample_first, resample_second\n")
-    pfile.write("probability_threshold=0.5\n")
+    pfile.write("probability_threshold=0.4\n")
     pfile.close()
 
 

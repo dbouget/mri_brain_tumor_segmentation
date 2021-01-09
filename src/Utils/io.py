@@ -1,6 +1,7 @@
 import os
 import nibabel as nib
 from nibabel import four_to_three
+import SimpleITK as sitk
 
 
 def load_nifti_volume(volume_path):
@@ -30,3 +31,11 @@ def dump_predictions(predictions, parameters, nib_volume, storage_prefix):
         predictions_output_path = os.path.join(storage_prefix + '-' + naming_suffix + '_' + 'argmax' + '.nii.gz')
         os.makedirs(os.path.dirname(predictions_output_path), exist_ok=True)
         nib.save(img, predictions_output_path)
+
+
+def convert_and_export_to_nifti(input_filepath):
+    input_sitk = sitk.ReadImage(input_filepath)
+    output_filepath = input_filepath.split('.')[0] + '.nii.gz'
+    sitk.WriteImage(input_sitk, output_filepath)
+
+    return output_filepath
