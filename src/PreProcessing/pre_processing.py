@@ -11,7 +11,6 @@ def run_pre_processing(filename, pre_processing_parameters):
     ext_split = filename.split('.')
     extension = '.'.join(ext_split[1:])
 
-    #@TODO. Accomodate for other types and re-export to nifti with SimpleITK?
     if extension != 'nii' or extension != 'nii.gz':
         filename = convert_and_export_to_nifti(input_filepath=filename)
         pass

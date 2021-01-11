@@ -12,11 +12,13 @@ def main(argv):
     try:
         opts, args = getopt.getopt(argv, "hi:o:m:g:", ["Input=", "Output=", "Model=", "GPU="])
     except getopt.GetoptError:
-        print('usage: main.py -Task <TaskName> --Arguments <ArgumentsList>')
+        print('usage: main.py --Input <MRI volume path> --Output <Results output path> --Model <Inference model name>'
+              ' --GPU <GPU id>')
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-h':
-            print('main.py -Task <TaskName> --Arguments <ArgumentsList>')
+            print('main.py --Input <MRI volume path> --Output <Results output path> --Model <Inference model name>'
+                  ' --GPU <GPU id>')
             sys.exit()
         elif opt in ("-i", "--Input"):
             input_filename = arg
@@ -28,11 +30,10 @@ def main(argv):
             if arg.isnumeric():
                 gpu_id = arg
     if input_filename == '':
-        print('usage: main.py -Input <input_filename> --Arguments <ArgumentsList>')
+        print('usage: main.py --Input <MRI volume path> --Output <Results output path> --Model <Inference model name>'
+              ' --GPU <GPU id>')
         sys.exit()
 
-    # @TODO. How to check GPUs available, and if the provided number is correct.
-    # Otherwise should set the value back to -1.
     os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
     os.environ["CUDA_VISIBLE_DEVICES"] = gpu_id
 

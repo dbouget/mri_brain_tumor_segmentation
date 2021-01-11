@@ -143,8 +143,6 @@ def decoder_block(x, cross_over_connection, nr_of_convolutions, use_bn=False, sp
     return x
 
 
-# @TODO. When having the attention_layer, should not concatenate at the first decoder step because x and attention_layer
-# are actually the same. Should check the iteration number and only do if not the bottom iteration value?
 def decoder_block_guided(x, cross_over_connection, nr_of_convolutions, iteration, attention_layer, use_bn=False, spatial_dropout=None):
     x = Conv3DTranspose(nr_of_convolutions, kernel_size=3, padding='same', strides=2)(x)
     upsampling_factor = int(math.pow(2, iteration))

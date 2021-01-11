@@ -67,11 +67,12 @@ for the predictions has to be set within the resources sub-folder to be accessib
 
 > `cp /path/to/mri.nii.gz /path/to/mri_brain-tumor_segmentation/resources/data/mri-nii.gz`    
 `docker run --entrypoint /bin/bash -v /path/to/mri_brain-tumor_segmentation/resources:/home/ubuntu/resources -t -i dbouget/mri_brain-tumor_segmentation:v1`  
+`cd /home/ubuntu/mri_brain-tumor_segmentation`  
 `python main.py -i resources/data/mri.nii.gz -o resources/Results -m AGUNet`  
 
 
 ## 4. Acknowledgements
-Parts of the models' architectures were copied or converted from Pytorch to Tensorflow, from the following repositories:  
+Parts of the models' architectures were collected from the following repositories:  
 - https://github.com/niecongchong/DANet-keras/  
 - https://github.com/ozan-oktay/Attention-Gated-Networks  
 
