@@ -11,7 +11,7 @@ Please cite the following article if you re-use any part:
 ![Dual attention guided U-Net architecture](resources/images/DAGUNet-Arch.png)
 
 ## 2. Installation
-The following steps have been tested on Ubuntu machines, it might not work as is on Windows.  
+The following steps have been tested on both Ubuntu and Windows. The details below are for Linux. See the troubleshooting section below for Windows-specific details.
 ### a. Python
 The Python virtual environment can be setup using the following commands:  
 
@@ -56,7 +56,7 @@ where additional variables can be modified:
 ### a. Python
 To run inference with the attention-gated U-Net model, using GPU 0, execute the following in the project root directory:  
 > `source venv/bin/activate`  
-`python main.py -i /path/to/file.nii.gz -o /output/path/to/Results -m AGUNet -g 0`  
+`python main.py -i /path/to/file.nii.gz -o /output/path/to/output_file -m AGUNet -g 0`  
 `deactivate`
 
 ### b. Docker
@@ -68,7 +68,7 @@ for the predictions has to be set within the resources sub-folder to be accessib
 > `cp /path/to/mri.nii.gz /path/to/mri_brain-tumor_segmentation/resources/data/mri-nii.gz`    
 `docker run --entrypoint /bin/bash -v /path/to/mri_brain-tumor_segmentation/resources:/home/ubuntu/resources -t -i dbouget/mri_brain-tumor_segmentation:v1`  
 `cd /home/ubuntu/mri_brain-tumor_segmentation`  
-`python main.py -i resources/data/mri.nii.gz -o resources/Results -m AGUNet`  
+`python main.py -i resources/data/mri.nii.gz -o resources/output_file -m AGUNet`  
 
 
 ## 4. Acknowledgements
@@ -92,3 +92,10 @@ For more detailed information about attention mechanisms, please read the corres
   `journal={arXiv preprint arXiv:1804.03999},`  
   `year={2018}`  
 `}`
+
+## Troubleshooting
+On windows, to activate the virtual environment, run:
+> `.\venv\Scripts\activate`
+
+This assumes that one is using [virtualenv](https://pypi.org/project/virtualenv/) to make virtual environments. This can be easily installed using pip by:
+> `pip install virtualenv`
