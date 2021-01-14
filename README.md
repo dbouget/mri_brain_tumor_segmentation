@@ -11,7 +11,7 @@ Please cite the following article if you re-use any part:
 ![Dual attention guided U-Net architecture](resources/images/DAGUNet-Arch.png)
 
 ## 2. Installation
-The following steps have been tested on both Ubuntu and Windows. The details below are for Linux. See the troubleshooting section below for Windows-specific details.  
+The following steps have been tested on both Ubuntu and Windows. The details below are for Linux. See the troubleshooting section below for Windows-specific details. 
 ### a. Python
 The Python virtual environment can be setup using the following commands:  
 
@@ -92,7 +92,6 @@ For more detailed information about attention mechanisms, please read the corres
   `journal={arXiv preprint arXiv:1804.03999},`  
   `year={2018}`  
 `}`
-
 
 ## Troubleshooting
 On windows, to activate the virtual environment, run:
