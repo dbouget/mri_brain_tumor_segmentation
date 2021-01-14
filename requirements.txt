@@ -22,9 +22,8 @@ Markdown==3.3.3
 matplotlib==3.3.3
 networkx==2.5
 nibabel==3.0.1
-numpy==1.19.4
+numpy==1.19.3
 Pillow==8.0.1
-pkg-resources==0.0.0
 protobuf==3.14.0
 pyparsing==2.4.7
 PySocks==1.7.1
