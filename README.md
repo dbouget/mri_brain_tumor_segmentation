@@ -5,7 +5,7 @@
 The repository contains the architectures, inference code,
 and trained models for meningioma segmentation in T1-weighted MRI volumes.
 
-Please cite the following article if you re-use any part:
+Please cite the following article if you re-use any part (coming soon):
 >``
 
 ![Dual attention guided U-Net architecture](resources/images/DAGUNet-Arch.png)
@@ -19,7 +19,7 @@ The Python virtual environment can be setup using the following commands:
 `source venv/bin/activate`  
 `pip install -r requirements.txt`
 
-### b. Docker
+### b. Docker (coming soon)
 Simply download the corresponding Docker image:  
 
 > `docker image pull dbouget/mri_brain-tumor_segmentation:v1`
@@ -65,9 +65,9 @@ As such, input MRI volumes have to be copied inside resources/data to be process
 for the predictions has to be set within the resources sub-folder to be accessible locally.  
 :warning: The docker container does not have gpu support so all inferences are performed on CPU only.   
 
-> `cp /path/to/mri.nii.gz /path/to/mri_brain-tumor_segmentation/resources/data/mri-nii.gz`    
-`docker run --entrypoint /bin/bash -v /path/to/mri_brain-tumor_segmentation/resources:/home/ubuntu/resources -t -i dbouget/mri_brain-tumor_segmentation:v1`  
-`cd /home/ubuntu/mri_brain-tumor_segmentation`  
+> `cp /path/to/mri.nii.gz /path/to/mri_brain_tumor_segmentation/resources/data/mri-nii.gz`    
+`docker run --entrypoint /bin/bash -v /path/to/mri_brain_tumor_segmentation/resources:/home/ubuntu/resources -t -i dbouget/mri_brain-tumor_segmentation:v1`  
+`cd /home/ubuntu/mri_brain_tumor_segmentation`  
 `python main.py -i resources/data/mri.nii.gz -o resources/output_prefix -m AGUNet`  
 
 
