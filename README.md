@@ -5,8 +5,15 @@
 The repository contains the architectures, inference code,
 and trained models for meningioma segmentation in T1-weighted MRI volumes.
 
-Please cite the following article if you re-use any part (coming soon):
->``
+Please cite the following article if you re-use any part:
+>`@misc{bouget2021meningioma,`  
+      `title={Meningioma segmentation in T1-weighted MRI leveraging global context and attention mechanisms},`   
+      `author={David Bouget and André Pedersen and Sayied Abdol Mohieb Hosainey and Ole Solheim and Ingerid Reinertsen},`  
+      `year={2021},`  
+      `eprint={2101.07715},`  
+      `archivePrefix={arXiv},`  
+      `primaryClass={eess.IV}`  
+`}`
 
 ![Dual attention guided U-Net architecture](resources/images/DAGUNet-Arch.png)
 
@@ -19,10 +26,10 @@ The Python virtual environment can be setup using the following commands:
 `source venv/bin/activate`  
 `pip install -r requirements.txt`
 
-### b. Docker (coming soon)
+### b. Docker  
 Simply download the corresponding Docker image:  
 
-> `docker image pull dbouget/mri_brain-tumor_segmentation:v1`
+> `docker pull dbouget/mri_brain-tumor_segmentation:v1`
 
 ### c. Models
 In order to download the models locally and prepare the folders, simply run the following:   
