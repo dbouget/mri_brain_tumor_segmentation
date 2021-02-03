@@ -7,7 +7,7 @@ and trained models for meningioma segmentation in T1-weighted MRI volumes.
 
 Please cite the following article if you re-use any part:
 >`@misc{bouget2021meningioma,`  
-      `title={Meningioma segmentation in T1-weighted MRI leveraging global context and attention mechanisms},`   
+      `title={Meningioma segmentation in T1-weighted MRI leveraging global context and attention mechanisms},`  
       `author={David Bouget and André Pedersen and Sayied Abdol Mohieb Hosainey and Ole Solheim and Ingerid Reinertsen},`  
       `year={2021},`  
       `eprint={2101.07715},`  
@@ -72,10 +72,9 @@ As such, input MRI volumes have to be copied inside resources/data to be process
 for the predictions has to be set within the resources sub-folder to be accessible locally.  
 :warning: The docker container does not have gpu support so all inferences are performed on CPU only.   
 
-> `cp /path/to/mri.nii.gz /path/to/mri_brain_tumor_segmentation/resources/data/mri-nii.gz`    
+> `cp /path/to/mri.nii.gz /path/to/mri_brain_tumor_segmentation/resources/data/mri.nii.gz`    
 `docker run --entrypoint /bin/bash -v /path/to/mri_brain_tumor_segmentation/resources:/home/ubuntu/resources -t -i dbouget/mri_brain-tumor_segmentation:v1`  
-`cd /home/ubuntu/mri_brain_tumor_segmentation`  
-`python main.py -i resources/data/mri.nii.gz -o resources/output_prefix -m AGUNet`  
+`python3 main.py -i ./resources/data/mri.nii.gz -o ./resources/output_prefix -m AGUNet`  
 
 
 ## 4. Acknowledgements
