@@ -105,3 +105,15 @@ On windows, to activate the virtual environment, run:
 
 This assumes that one is using [virtualenv](https://pypi.org/project/virtualenv/) to make virtual environments. This can be easily installed using pip by:
 > `pip install virtualenv`
+
+When installing dependencies (in a virtual environment), you might have a problem installing torch:
+```
+ERROR: Could not find a version that satisfies the requirement torch==1.4.0
+ERROR: No matching distribution found for torch==1.4.0
+```
+
+If so, install torch using this command:
+> `pip install torch===1.4.0 torchvision===0.5.0 -f https://download.pytorch.org/whl/torch_stable.html`
+
+Then, run the same line to install dependencies, and to properly verify that all dependencies are installed:
+> `pip install -r requirements.txt`
